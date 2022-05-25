@@ -9,5 +9,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: pull and reload on Aliyun
+      - name: sshpass jump to machine
         run: sshpass -p ${{secrets.JUMP_PASSWORD}} ssh -o StrictHostKeyChecking=no ${{secrets.JUMP_USER}}@${{secrets.JUMP_IP}} -p ${{secrets.JUMP_PORT}}  "sshpass -p ${{secrets.MACHINE_PASSWORD}} ssh -o StrictHostKeyChecking=no ${{secrets.MACHINE_USER}}@${{secrets.MACHINE_IP}} -p ${{secrets.MACHINE_PORT}}  \"echo ${{secrets.MACHINE_PASSWORD}} | sudo -S ls\""
